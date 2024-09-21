@@ -1,7 +1,5 @@
 package org.codebreakers;
 
-package org.codebreakers;
-
 import java.util.*;
 
 public class StringUtils {
