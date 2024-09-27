@@ -5,7 +5,7 @@ public class FinancialUtils {
     /**
      * Converts an amount from one currency to another.
      *
-     * @param amount The amount of money to convert.
+     * @param amount       The amount of money to convert.
      * @param exchangeRate The exchange rate from the source to the target currency.
      * @return The converted amount.
      * @throws IllegalArgumentException If amount is negative or exchange rate is non-positive.
@@ -21,7 +21,7 @@ public class FinancialUtils {
     /**
      * Applies a tax rate to an amount.
      *
-     * @param amount The amount to which the tax rate is applied.
+     * @param amount  The amount to which the tax rate is applied.
      * @param taxRate The tax rate (in percentage).
      * @return The amount including tax.
      * @throws IllegalArgumentException If amount or tax rate is negative.
@@ -38,8 +38,8 @@ public class FinancialUtils {
      * Calculates the yield of an investment based on annual interest, number of months, and initial amount.
      *
      * @param annualRate The annual interest rate (in percentage).
-     * @param months The number of months the money is invested.
-     * @param principal The initial amount of money invested.
+     * @param months     The number of months the money is invested.
+     * @param principal  The initial amount of money invested.
      * @return The yield of the investment.
      * @throws IllegalArgumentException If annualRate, months, or principal are negative.
      */
@@ -55,8 +55,8 @@ public class FinancialUtils {
     /**
      * Calculates the monthly payment of a credit based on annual interest, number of months, and credit amount.
      *
-     * @param annualRate The annual interest rate (in percentage).
-     * @param months The number of months over which the credit is to be repaid.
+     * @param annualRate   The annual interest rate (in percentage).
+     * @param months       The number of months over which the credit is to be repaid.
      * @param creditAmount The total credit amount.
      * @return The monthly payment amount.
      * @throws IllegalArgumentException If annualRate, months, or creditAmount are negative.
@@ -74,7 +74,7 @@ public class FinancialUtils {
     /**
      * Calculates the monthly pension payment based on average salary and months of service.
      *
-     * @param averageSalary The average salary over the entire working period.
+     * @param averageSalary   The average salary over the entire working period.
      * @param monthsOfService The total number of months of service.
      * @return The monthly pension payment.
      * @throws IllegalArgumentException If averageSalary or monthsOfService are negative.
@@ -93,6 +93,4 @@ public class FinancialUtils {
 
         return averageSalary * pensionPercentage;
     }
-
-
 }

@@ -1,6 +1,9 @@
 package org.codebreakers;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class StringUtils {
 
@@ -31,8 +34,8 @@ public class StringUtils {
     /**
      * Вспомогательный рекурсивный метод для генерации перестановок.
      *
-     * @param prefix текущий префикс (собранная часть строки)
-     * @param str оставшаяся часть строки для перестановки
+     * @param prefix       текущий префикс (собранная часть строки)
+     * @param str          оставшаяся часть строки для перестановки
      * @param permutations список для сохранения всех перестановок
      */
     private static void permute(String prefix, String str, List<String> permutations) {
@@ -49,7 +52,7 @@ public class StringUtils {
     /**
      * Проверяет, содержит ли строка указанную подстроку.
      *
-     * @param str строка, в которой выполняется поиск
+     * @param str       строка, в которой выполняется поиск
      * @param substring подстрока для поиска
      * @return true, если строка содержит подстроку, иначе false
      */
