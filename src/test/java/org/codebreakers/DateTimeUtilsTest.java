@@ -1,8 +1,14 @@
 package org.codebreakers;
 
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
+
 import java.time.LocalDate;
+import java.time.temporal.UnsupportedTemporalTypeException;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class DateTimeUtilsTest {
 
@@ -11,6 +17,8 @@ class DateTimeUtilsTest {
         LocalDate startDate = LocalDate.of(2023, 1, 1);
         LocalDate endDate = LocalDate.of(2023, 1, 10);
         long days = DateTimeUtils.daysBetweenDates(startDate, endDate);
+        assertEquals(9, days);
+        days = DateTimeUtils.daysBetweenDates(endDate, startDate);
         assertEquals(9, days);
     }
 
@@ -27,6 +35,8 @@ class DateTimeUtilsTest {
         LocalDate date = LocalDate.of(2023, 1, 1);
         String formattedDate = DateTimeUtils.formatDate(date, "dd/MM/yyyy");
         assertEquals("01/01/2023", formattedDate);
+        assertThrows(UnsupportedTemporalTypeException.class,
+                () -> DateTimeUtils.formatDate(date, "dxyy"));
     }
 
     @Test
@@ -46,5 +56,7 @@ class DateTimeUtilsTest {
 
         LocalDate resultDate = DateTimeUtils.addWorkingDays(startDate, 3);
         assertEquals(expectedDate, resultDate);
+        assertThrows(IllegalArgumentException.class, () -> DateTimeUtils.addWorkingDays(startDate, -3));
+        assertThrows(IllegalArgumentException.class, () -> DateTimeUtils.addWorkingDays(startDate, 0));
     }
 }

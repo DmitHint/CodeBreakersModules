@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
+import static java.lang.Math.abs;
+
 public class DateTimeUtils {
     /**
      * Рассчитывает разницу между двумя датами в днях.
@@ -14,7 +16,7 @@ public class DateTimeUtils {
      * @return количество дней между датами
      */
     public static long daysBetweenDates(LocalDate startDate, LocalDate endDate) {
-        return ChronoUnit.DAYS.between(startDate, endDate);
+        return abs(ChronoUnit.DAYS.between(startDate, endDate));
     }
 
     /**
@@ -66,8 +68,13 @@ public class DateTimeUtils {
      * @param date          исходная дата
      * @param workDaysToAdd количество рабочих дней для добавления
      * @return дата с добавленными рабочими днями
+     * @throws IllegalArgumentException если передано отрицательное или нулевое количество рабочих дней
      */
     public static LocalDate addWorkingDays(LocalDate date, int workDaysToAdd) {
+        if (workDaysToAdd <= 0) {
+            throw new IllegalArgumentException("workDaysToAdd must be positive");
+        }
+
         LocalDate resultDate = date.plusDays(1);
         int addedDays = 0;
 
